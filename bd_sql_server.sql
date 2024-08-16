@@ -1,9 +1,3 @@
---TRABAJO PRÁCTICO Nº 2
---MAXIMILIANO ROMANO - FRANCO BRATTOLI
---COMISION 1 - BASE DE DATOS SPEEDY GONZALEZ
-
-
-
 create database SpeedyGonzalez;
 use SpeedyGonzalez;
 
@@ -26,24 +20,24 @@ CREATE TABLE TipoRemolque (
 INSERT INTO Provincia (Nombre)
 VALUES
     ('Buenos Aires'),
-    ('Córdoba'),
+    ('CÃ³rdoba'),
     ('Santa Fe'),
     ('Mendoza'),
-    ('Tucumán'),
+    ('TucumÃ¡n'),
     ('Salta'),
-    ('Entre Ríos'),
+    ('Entre RÃ­os'),
     ('Jujuy');
 
 -- Insertar datos de ciudades
 INSERT INTO Ciudad (Nombre)
 VALUES
     ('Ciudad de Buenos Aires'),
-    ('Córdoba'),
+    ('CÃ³rdoba'),
     ('Rosario'),
     ('Mendoza'),
     ('Santa Fe'),
     ('Salta'),
-    ('Paraná'),
+    ('ParanÃ¡'),
     ('San Salvador de Jujuy');
 
 INSERT INTO TipoRemolque (Nombre)
@@ -152,16 +146,16 @@ PRIMARY KEY (id_chofer));
 
 INSERT INTO choferes (dni, nombre, apellido, direccion, telefono_fijo, telefono_celular, edad, email, codigo_registro)
 VALUES
-	('32445262', 'Manuel', 'Saavedra', 'Felipe Moré 1109', '4484422', '3416221221', 36, 'manusaavedra@gmail.com', 'REG302'),
+	('32445262', 'Manuel', 'Saavedra', 'Felipe MorÃ© 1109', '4484422', '3416221221', 36, 'manusaavedra@gmail.com', 'REG302'),
     ('24756718', 'Juan', 'Gonzalez', 'Saavedra 2765', '4456472', '3412474652', 44, 'jgonzales12@gmail.com', 'REG123'),
-    ('19827774', 'María', 'López', 'Monte Flores 5645', '4362471', '3415746428', 53, 'mlopez51@gmail.com', 'REG456'),
+    ('19827774', 'MarÃ­a', 'LÃ³pez', 'Monte Flores 5645', '4362471', '3415746428', 53, 'mlopez51@gmail.com', 'REG456'),
     ('33001923', 'Carlos', 'Martinez', 'Rondeau 1814', '4125647', '3412182662', 34, 'cmartinez28@hotmail.com', 'REG789'),
-    ('19829871', 'Laura', 'Rodríguez', 'Nuestra Sra. del Rosario 3055', '4564726', '3416758221', 51, 'lrodrigez20@hotmail.com', 'REG101'),
-    ('15817268', 'Roberto', 'Gómez', 'Venezuela 6435', '4276278', '3414625161', 62, 'rgomez23@gmail.com', 'REG112'),
-    ('40391827', 'Ana', 'Pérez', 'Colombres 920', '4276271', '3412736227', 27, 'aperez65@gmail.com', 'REG131'),
-    ('24281761', 'Diego', 'Hernández', 'Pellegrini 6045', '4256472', '3415744462', 43, 'dhernandez30@gmail.com', 'REG415'),
-    ('18727165', 'Sofía', 'Díaz', 'Godoy Cruz 2453', '4564726', '3415755742',51 , 'sdiaz27@gmail.com', 'REG516'),
-    ('39482719', 'Pedro', 'Ramírez', 'Vera Mujica 3543', '4445261', '3414472622', 27, 'pramirez19@gmail.com', 'REG617'),
+    ('19829871', 'Laura', 'RodrÃ­guez', 'Nuestra Sra. del Rosario 3055', '4564726', '3416758221', 51, 'lrodrigez20@hotmail.com', 'REG101'),
+    ('15817268', 'Roberto', 'GÃ³mez', 'Venezuela 6435', '4276278', '3414625161', 62, 'rgomez23@gmail.com', 'REG112'),
+    ('40391827', 'Ana', 'PÃ©rez', 'Colombres 920', '4276271', '3412736227', 27, 'aperez65@gmail.com', 'REG131'),
+    ('24281761', 'Diego', 'HernÃ¡ndez', 'Pellegrini 6045', '4256472', '3415744462', 43, 'dhernandez30@gmail.com', 'REG415'),
+    ('18727165', 'SofÃ­a', 'DÃ­az', 'Godoy Cruz 2453', '4564726', '3415755742',51 , 'sdiaz27@gmail.com', 'REG516'),
+    ('39482719', 'Pedro', 'RamÃ­rez', 'Vera Mujica 3543', '4445261', '3414472622', 27, 'pramirez19@gmail.com', 'REG617'),
     ('37073249', 'Franco', 'Brattoli', 'Santa Fe 3163', '4241138', '3416493925', 30, 'fbratt29@hotmail.com', 'AOZ718');
 
 select * from choferes
@@ -219,7 +213,7 @@ select * from cliente
 
 
 
--- Insertar clientes personas físicas
+-- Insertar clientes personas fÃ­sicas
 INSERT INTO cliente (cod_cliente, nombre, apellido, dni, direccion, telefono, email)
 VALUES
     ('P001', 'Eduardo', 'Sacheri', 23492818, 'Talcahuano 114', '011548451', 'eduardos21@email.com'),
@@ -239,7 +233,7 @@ INSERT INTO cliente (cod_cliente, razon_social, CUIT, direccion, telefono, email
 VALUES
     ('E001', 'El Palacio', '20335541214', 'Rio Negro 5050', '3416445471', 'transporte@gdlogistica.com'),
 	('E002', 'Anacleta Bebes', '24127885311', 'Italia 418', '3414241138', 'anacletabebes@hotmail.com'),
-	('E003', 'Estudios America', '20175422140', 'España 131', '0114512450', 'logisticaestudio@america.com'),
+	('E003', 'Estudios America', '20175422140', 'EspaÃ±a 131', '0114512450', 'logisticaestudio@america.com'),
 	('E004', 'Centolla SRL', '20124555470', 'Tierra del Fuego 29', '053554685', 'envioscentolla@hotmail.com'),
 	('E005', 'Vip Mastress', '24181124251', 'La Plata 1109', '3345644521', 'envio_colchones@hotmail.com'),
 	('E006', 'El Boulevard', '24405569951', 'Chajari 334', '3345446200', 'enviospanificados@elboulevard.com'),
@@ -309,14 +303,14 @@ select * from viajes
 ------------------------------------------------------------------------
 
 ---4) 
----A)   CUÁNTOS VIAJES SE REALIZARON HACIA LA PROVINCIA DE SANTA FE?
+---A)   CUÃNTOS VIAJES SE REALIZARON HACIA LA PROVINCIA DE SANTA FE?
 SELECT COUNT(*) AS ViajesHaciaSantaFe
 FROM viajes
 WHERE EXISTS (SELECT dbo.Provincia.IDProvincia from dbo.provincia where dbo.provincia.IDProvincia=dbo.viajes.IDProvinciaDestino and dbo.Provincia.Nombre='Santa FE');
 ---COMPLETO Y FUNCIONANDO 
 
 
--- INDICE Nº 1)
+-- INDICE NÂº 1)
 create index idxnombre_provincia on provincia(Nombre)
 ------------------------------------------------------------------------
 
@@ -324,11 +318,11 @@ create index idxnombre_provincia on provincia(Nombre)
 ---TP 1 - B)   MOSTRAR LOS DATOS QUE CONSIDERE RELEVANTE SOBRE LOS VIAJES REALIZADOS DESDE LA PVCIA DE CORDOBA DURANTE EL 1ER SEMESTRE DEL 2023
 SELECT codigo_viaje, km_recorridos, id_cliente, id_camion_asignado, id_chofer_asignado
 FROM viajes
-WHERE EXISTS (SELECT dbo.Provincia.IDProvincia from dbo.provincia where dbo.provincia.IDProvincia=dbo.viajes.IDProvinciaOrigen and dbo.Provincia.Nombre='Córdoba')
+WHERE EXISTS (SELECT dbo.Provincia.IDProvincia from dbo.provincia where dbo.provincia.IDProvincia=dbo.viajes.IDProvinciaOrigen and dbo.Provincia.Nombre='CÃ³rdoba')
 AND fecha_llegada_real >= '2023-01-01' AND fecha_llegada_real < '2023-07-01';
 ---COMPLETO Y FUNCIONANDO
 
--- INDICE Nº 2)
+-- INDICE NÂº 2)
 create index idxfecha_llegada_real on viajes (fecha_llegada_real)
 
 --------------------------------------------------------------------------
@@ -345,7 +339,7 @@ ORDER BY SUM(ve.km_recorridos) DESC;
 ---COMPLETO Y FUNCIONANDO
 
 
--- INDICES Nº 3 y 4)
+-- INDICES NÂº 3 y 4)
 create index idxChofer_Asignado on viajes (id_chofer_asignado)
 create index idxfecha_salida_real on viajes (fecha_salida_real)
 
@@ -363,7 +357,7 @@ ORDER BY ve.km_recorridos DESC;
 ---COMPLETO Y FUNCIONANDO
 
 
---INDICE Nº 5)
+--INDICE NÂº 5)
 create index ix_fecha_salida_estimada on viajes (fecha_salida_estimada);
 
 go
@@ -371,10 +365,10 @@ go
 
 ------------------------------------------------------------------------------------------
 
---TP 2 . EJERCICIO 4) Diseña  un  Stored  Procedure  llamado  'ActualizarViajeEnvio'  
---que  acepte  parámetros para identificar un viaje/envío a actualizar 
+--TP 2 . EJERCICIO 4) DiseÃ±a  un  Stored  Procedure  llamado  'ActualizarViajeEnvio'  
+--que  acepte  parÃ¡metros para identificar un viaje/envÃ­o a actualizar 
 --y el nuevo valor para  la fecha estimada de llegada. 
---Este SP se utilizará para actualizar, de ser necesario, este campo pero solo 
+--Este SP se utilizarÃ¡ para actualizar, de ser necesario, este campo pero solo 
 --se debe poder actualizar para viajes que no hayan llegado.
 
 create procedure actualizacionFecha
@@ -393,11 +387,11 @@ go
 -----------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------
---TP 2. EJERCICIO 5) 5. Escriba un Stored Procedure llamado 'ObtenerPatenteCamionAsignado’ 
---que acepte como parámetros de entrada el DNI de un chofer y una fecha de consulta 
---y devuelva en dos parámetros independientes:
---a)Un  mensaje  indicando  si  encontró  o  no  al  chofer  y  si  tiene  un  camión asignado en la fecha dada.
---b)La patente del camión asignado al chofer en esa fecha en caso de que se encuentre el mismo.
+--TP 2. EJERCICIO 5) 5. Escriba un Stored Procedure llamado 'ObtenerPatenteCamionAsignadoÂ’ 
+--que acepte como parÃ¡metros de entrada el DNI de un chofer y una fecha de consulta 
+--y devuelva en dos parÃ¡metros independientes:
+--a)Un  mensaje  indicando  si  encontrÃ³  o  no  al  chofer  y  si  tiene  un  camiÃ³n asignado en la fecha dada.
+--b)La patente del camiÃ³n asignado al chofer en esa fecha en caso de que se encuentre el mismo.
 
 
 create procedure ObtenerPatenteCamionAsignado
