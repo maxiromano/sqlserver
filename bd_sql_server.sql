@@ -203,7 +203,7 @@ email varchar(50)
 PRIMARY KEY(id_cliente));
 
 
---EJERCICIO 2. MODIFICAMOS TABLA PARA AGREGAR RESTRICCIONES VIA CHECK CONSTRAINT
+--MODIFICAMOS TABLA PARA AGREGAR RESTRICCIONES VIA CHECK CONSTRAINT
 alter table cliente 
 add CONSTRAINT CHK_EsPersonaFisica CHECK (
         (nombre IS NOT NULL AND apellido IS NOT NULL AND dni IS NOT NULL AND razon_social IS NULL AND cuit IS NULL) OR
@@ -301,13 +301,11 @@ select * from viajes
 
 
 ------------------------------------------------------------------------
-
----4) 
----A)   CUÁNTOS VIAJES SE REALIZARON HACIA LA PROVINCIA DE SANTA FE?
+ 
+---CUÁNTOS VIAJES SE REALIZARON HACIA LA PROVINCIA DE SANTA FE?
 SELECT COUNT(*) AS ViajesHaciaSantaFe
 FROM viajes
 WHERE EXISTS (SELECT dbo.Provincia.IDProvincia from dbo.provincia where dbo.provincia.IDProvincia=dbo.viajes.IDProvinciaDestino and dbo.Provincia.Nombre='Santa FE');
----COMPLETO Y FUNCIONANDO 
 
 
 -- INDICE Nº 1)
@@ -315,12 +313,11 @@ create index idxnombre_provincia on provincia(Nombre)
 ------------------------------------------------------------------------
 
 
----TP 1 - B)   MOSTRAR LOS DATOS QUE CONSIDERE RELEVANTE SOBRE LOS VIAJES REALIZADOS DESDE LA PVCIA DE CORDOBA DURANTE EL 1ER SEMESTRE DEL 2023
+---MOSTRAR LOS DATOS QUE CONSIDERE RELEVANTE SOBRE LOS VIAJES REALIZADOS DESDE LA PVCIA DE CORDOBA DURANTE EL 1ER SEMESTRE DEL 2023
 SELECT codigo_viaje, km_recorridos, id_cliente, id_camion_asignado, id_chofer_asignado
 FROM viajes
 WHERE EXISTS (SELECT dbo.Provincia.IDProvincia from dbo.provincia where dbo.provincia.IDProvincia=dbo.viajes.IDProvinciaOrigen and dbo.Provincia.Nombre='Córdoba')
 AND fecha_llegada_real >= '2023-01-01' AND fecha_llegada_real < '2023-07-01';
----COMPLETO Y FUNCIONANDO
 
 -- INDICE Nº 2)
 create index idxfecha_llegada_real on viajes (fecha_llegada_real)
@@ -328,7 +325,7 @@ create index idxfecha_llegada_real on viajes (fecha_llegada_real)
 --------------------------------------------------------------------------
 
 
----TP 1 - C)   LISTAR LOS 3 CHOFERES QUE REGISTRARON LA MAYOR CANTIDAD DE KM. RECORRIDOS EN EL 2023,
+--- LISTAR LOS 3 CHOFERES QUE REGISTRARON LA MAYOR CANTIDAD DE KM. RECORRIDOS EN EL 2023,
 --- MOSTRANDO SU NOMBRE Y CANTIDAD DE KM. RECORRIDOS EN C/VIAJE
 SELECT TOP 3 c.nombre, c.apellido, SUM(ve.km_recorridos) AS KilometrosTotales
 FROM Choferes c
@@ -336,7 +333,6 @@ JOIN viajes ve ON c.id_chofer = ve.id_chofer_asignado
 WHERE YEAR(ve.fecha_salida_real) = 2023
 GROUP BY c.nombre, c.apellido
 ORDER BY SUM(ve.km_recorridos) DESC;
----COMPLETO Y FUNCIONANDO
 
 
 -- INDICES Nº 3 y 4)
@@ -345,7 +341,7 @@ create index idxfecha_salida_real on viajes (fecha_salida_real)
 
 
 
----TP1 - D) OBTENER UNA LISTA DE LOS CLIENTES QUE SOLICITARON VIAJES/ENVIOS EN 2023, JUNTO CON LOS NOMBRES DE LOS
+---OBTENER UNA LISTA DE LOS CLIENTES QUE SOLICITARON VIAJES/ENVIOS EN 2023, JUNTO CON LOS NOMBRES DE LOS
 ---CHOFERES Y LA CANTIDAD DE KM. RECORRIDOS EN C/VIAJE. MOSTRAR LA INFO EN ORDEN DESC DE KM. RECORRIDOS
 
 SELECT c.nombre as NombreCliente, c.apellido as ApellidoCliente, c.razon_social, ch.nombre as NombreChofer, ch.apellido as ApellidoChofer, ve.km_recorridos
@@ -354,7 +350,6 @@ JOIN viajes ve ON c.id_cliente = ve.id_cliente
 JOIN choferes ch ON ve.id_chofer_asignado = ch.id_chofer
 WHERE YEAR(ve.fecha_salida_estimada) = 2023
 ORDER BY ve.km_recorridos DESC;
----COMPLETO Y FUNCIONANDO
 
 
 --INDICE Nº 5)
@@ -365,7 +360,7 @@ go
 
 ------------------------------------------------------------------------------------------
 
---TP 2 . EJERCICIO 4) Diseña  un  Stored  Procedure  llamado  'ActualizarViajeEnvio'  
+--Diseña  un  Stored  Procedure  llamado  'ActualizarViajeEnvio'  
 --que  acepte  parámetros para identificar un viaje/envío a actualizar 
 --y el nuevo valor para  la fecha estimada de llegada. 
 --Este SP se utilizará para actualizar, de ser necesario, este campo pero solo 
@@ -387,11 +382,11 @@ go
 -----------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------
---TP 2. EJERCICIO 5) 5. Escriba un Stored Procedure llamado 'ObtenerPatenteCamionAsignado 
+--Escriba un Stored Procedure llamado 'ObtenerPatenteCamionAsignado 
 --que acepte como parámetros de entrada el DNI de un chofer y una fecha de consulta 
 --y devuelva en dos parámetros independientes:
---a)Un  mensaje  indicando  si  encontró  o  no  al  chofer  y  si  tiene  un  camión asignado en la fecha dada.
---b)La patente del camión asignado al chofer en esa fecha en caso de que se encuentre el mismo.
+--Un  mensaje  indicando  si  encontró  o  no  al  chofer  y  si  tiene  un  camión asignado en la fecha dada.
+--La patente del camión asignado al chofer en esa fecha en caso de que se encuentre el mismo.
 
 
 create procedure ObtenerPatenteCamionAsignado
@@ -430,10 +425,3 @@ exec ObtenerPatenteCamionAsignado 32445262, '2023-02-10', 'hola', 'hola','hola'
 ------------------------------------------------------------------------------------------
 
 go
-
-
-
-
---------------------------------------------------------
---------------------FIN DEL TP--------------------------
---------------------------------------------------------
